@@ -42,65 +42,74 @@ color:white;
     
    
    
-   li .logo{
+   .logo{
         
          
         margin-left: auto;
         margin-right: auto;
         height:40px;
-        
-        
+        margin-top:7px;
+        display:block;
+        padding-bottom:4px;
     }
     ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
-  
+ padding:0px;
+  display:flex;  
+  list-style:outside none none;
   background-color: #333;
-  font-size:25px;        
+  font-size:25px;   
+       width: auto;
+        text-align:center;
+     flex-wrap:nowrap;  
+        justify-content:space-between;
 }
 
-li {
-  display:inline-block;
-   
-}
 
-li a {
- 
-  color: white;
-  text-decoration: none;
-  outline:none;
-    
-    min-height: 10em;
-    display: table-cell;
-    vertical-align: middle;
-}
 
-li a:hover{
+ a:hover{
   background-color: #111;
-    
+ padding:15px 14px;
+    margin-top:0px;
 }
 
 }
-    a{
+    #li1{
+        
+    }
+    #li2{
+   
+    }
+    
+    
+    #a1{
+        color:white;
         outline:none;
         text-decoration:none;
-        
-       
-        
-        
+        float:left;
+        padding-left:10px;
+        padding-top:8px;
+    }
+    #a2{
+        color:white;
+        outline:none;
+        text-decoration:none;
+        float:right;
+        padding-top:8px;
+        padding-right:10px;
     }
 </style>
 
 </head>
 <body>
      <% include ../partials/nav.ejs %>
-    <center>
+   
 <h1>Benvenuto sul sito ufficiale di RedHouse!</h1>
 
 
 
-</center>
+
 
 </body>
 </html>
