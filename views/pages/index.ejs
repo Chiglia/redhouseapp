@@ -3,7 +3,7 @@
   <title>Home page</title>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    </head>
 <style>
 .button {
   background-color: #4CAF50; /* Green */
@@ -83,9 +83,10 @@ color:white;
       padding-right:10px;  
     }
     #li2{
-   padding-top:8px;
-        padding-right:10px;
-        padding-left:10px;
+        padding-top:8px;
+        margin-right:10px;
+       width:35px;
+        height:43px;
 		 float:right;
 		 z-index:4;
 	
@@ -169,12 +170,12 @@ var i=0;
 	
 	 if(i==0){
       document.getElementById('side-menu').style.width = '40%';
-      document.getElementById("puls").style.marginRight = '32vw';
+      document.getElementById("puls").style.marginRight = "32vw";
       i=1;
 	}
 	else{
 	document.getElementById('side-menu').style.width = '0';
-    document.getElementById("puls").style.marginRight = "0px";    
+    document.getElementById("puls").style.marginRight = "0";    
 	  i=0;
     }
 	}
