@@ -3,6 +3,7 @@
   <title>Home page</title>
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
 <style>
 .button {
@@ -162,10 +163,10 @@ color:white;
   display:block;
   transition:0.3s;
 }
-    #puls{
-        transition:margin-right 0.5s;
-        
-    }
+    
+    @media(max-width:568px){
+  
+}
 </style>
 <script>
 var i=0;
@@ -173,10 +174,14 @@ var i=0;
 	
 	 if(i==0){
       document.getElementById('side-menu').style.width = '40%';
-      document.getElementById("li2").style.marginRight = '50vw';
+      document.getElementById("totale").style.marginRight = '40vw';
+      if ($(window).width() > 568) {
+        document.getElementById("li2").style.marginRight = '35vw';
+      }
       i=1;
 	}
-	else{
+        
+	else if(i==1){
 	document.getElementById('side-menu').style.width = '0';
     document.getElementById("li2").style.marginRight = "0";    
 	  i=0;
@@ -215,10 +220,10 @@ var i=0;
   </div>
 </nav>
 
-   
+<div id="totale">   
 <h1>Benvenuto sul sito ufficiale di RedHouse!</h1>
 <p>cosa facciamo?</p>
-
+</div>
 
 
 
