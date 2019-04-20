@@ -244,7 +244,7 @@ var i=0;
 	}
         
 	else if(i==1){
-	document.getElementById('side-menu').style.width = '0';
+	document.getElementById('side-menu').style.width = "0px";
     document.getElementById("li2").style.marginRight = "2vw";  
     document.getElementById("totale").style.marginRight = '0vw';    
 	  i=0;
@@ -255,14 +255,17 @@ var i=0;
     document.getElementById("li2").style.marginRight = "2vw";  
     document.getElementById("totale").style.marginRight = '0vw';    
 	  i=0; 
-      
-      
-      
+     cambia();     
   }
-	function myFunction(x) {
-  x.classList.toggle("change");
+    
+	function cambia() {
+  document.getElementById("li2").classList.toggle("change");
 }
-</script>
+    
+    if($('side-menu').width()!=0){
+    window.onscroll=chiudi;   
+    }
+    </script>
 <body>
      
 <nav>
@@ -274,7 +277,7 @@ var i=0;
       </center>
         
        <li id="li2">  
-	   <div  id="puls"onclick="myFunction(this);slide()">
+	   <div  id="puls"onclick="cambia();slide()">
   <div class="bar1"></div>
   <div class="bar2"></div>
   <div class="bar3"></div>
