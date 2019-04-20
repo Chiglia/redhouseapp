@@ -250,7 +250,15 @@ var i=0;
 	  i=0;
     }
 	}
-
+  function chiudi(){
+     document.getElementById('side-menu').style.width = '0';
+    document.getElementById("li2").style.marginRight = "2vw";  
+    document.getElementById("totale").style.marginRight = '0vw';    
+	  i=0; 
+      
+      
+      
+  }
 	function myFunction(x) {
   x.classList.toggle("change");
 }
@@ -274,7 +282,7 @@ var i=0;
     
    
 </ul>
-<div id="side-menu" class="side-nav">
+<div id="side-menu" class="side-nav" >
     
     <a href="#">Chi siamo?</a>
     <a href="#">Progetti</a>
@@ -283,7 +291,7 @@ var i=0;
   </div>
 </nav>
 
-<div id="totale">   
+<div id="totale" onclick="chiudi()">   
 <h1 id="titolo">Benvenuto sul sito ufficiale di RedHouse!</h1>
 
 
