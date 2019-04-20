@@ -13,7 +13,7 @@
 <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
 <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -21,8 +21,7 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
-    </head>
-<style>
+    <style>
 .button {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -214,7 +213,6 @@ color:white;
   background: #ddd;
 }
 
-/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
   .row, .navbar {   
     flex-direction: column;
@@ -225,13 +223,10 @@ color:white;
 }
     #titolo{
         padding-left:20px;
-        
-        
-        
-    }
-</style>
-<script>
+      }
+</style><script>
 var i=0;
+    var x=$('side-menu').width();
 	function slide(){
 	
 	 if(i==0){
@@ -255,18 +250,18 @@ var i=0;
     document.getElementById("li2").style.marginRight = "2vw";  
     document.getElementById("totale").style.marginRight = '0vw';    
 	  i=0; 
-     cambia();     
+      document.getElementById("li2").classList.toggle("change",false);    
   }
     
 	function cambia() {
   document.getElementById("li2").classList.toggle("change");
 }
     
-    if($('side-menu').width()!=0){
-    window.onscroll=chiudi;   
-    }
-    </script>
-<body>
+
+    </script></head>
+
+
+<body onscroll="chiudi()">
      
 <nav>
     <ul>
@@ -277,7 +272,7 @@ var i=0;
       </center>
         
        <li id="li2">  
-	   <div  id="puls"onclick="cambia();slide()">
+	   <div id="puls" onclick="cambia();slide()">
   <div class="bar1"></div>
   <div class="bar2"></div>
   <div class="bar3"></div>
@@ -285,7 +280,7 @@ var i=0;
     
    
 </ul>
-<div id="side-menu" class="side-nav" >
+<div id="side-menu" class="side-nav">
     
     <a href="#">Chi siamo?</a>
     <a href="#">Progetti</a>
