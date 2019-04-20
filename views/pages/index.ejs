@@ -65,6 +65,7 @@ color:white;
   background-color: #333;
   font-size:25px;   
        width: auto;
+        height:50px;
         text-align:center;
      flex-wrap:nowrap;  
         justify-content:space-between;
@@ -74,16 +75,9 @@ color:white;
 
  #li1:hover{
   background-color: #111;
+  margin-top:0px;
+}
    
-    margin-top:0px;
-}
-    #li2:hover{
-  background-color: #111;
-   padding-right:10px;
-   padding-left:10px;
-    margin-top:0px;
-       
-}
 
 }
     #li1{
@@ -91,10 +85,10 @@ color:white;
     }
     #li2{
         padding-top:8px;
-        padding-right:10px;
-       padding-left:10px;
+       height:50px;
+       margin-right:20px;
        width:35px;
-        height:43px;
+        
 		 float:right;
 		 z-index:4;
 	    transition:margin-right 0.5s;
@@ -142,7 +136,6 @@ color:white;
 .side-nav{
   bottom:0;
   width:0;
-  position:fixed;
   z-index:2;
   top:0;
   right:0;
@@ -151,14 +144,9 @@ color:white;
   overflow-x:hidden;
   padding-top:60px;
   transition:0.5s;
+    position:absolute;
 }
-.side-nav {
-  position:absolute;
-  top:0;
-  right:0;
-  font-size:36px;
-  margin-left:50px;
-}
+
 .side-nav a{
   padding:10px 10px 10px 30px;
   text-decoration:none;
@@ -169,6 +157,58 @@ color:white;
 }
     
     #totale{
+       transition:0.5s; 
+     }
+
+
+
+
+/* Column container */
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+  flex: 30%;
+  background-color: #f1f1f1;
+  padding: 20px;
+    float:right;
+}
+
+/* Main column */
+.main {
+  flex: 70%;
+ 
+  padding: 20px;
+}
+
+/* Fake image, just for this example */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row, .navbar {   
+    flex-direction: column;
+  }
+}
+    * {
+  box-sizing: border-box;
+}
+    #titolo{
         padding-left:20px;
         
         
@@ -180,7 +220,7 @@ var i=0;
 	function slide(){
 	
 	 if(i==0){
-      document.getElementById('side-menu').style.width = '40%';
+      document.getElementById('side-menu').style.width = '40vw';
       document.getElementById("totale").style.marginRight = '40vw';
       if ($(window).width() > 568) {
         document.getElementById("li2").style.marginRight = '35vw';
@@ -190,7 +230,7 @@ var i=0;
         
 	else if(i==1){
 	document.getElementById('side-menu').style.width = '0';
-    document.getElementById("li2").style.marginRight = "0";  
+    document.getElementById("li2").style.marginRight = "2vw";  
     document.getElementById("totale").style.marginRight = '0vw';    
 	  i=0;
     }
@@ -229,10 +269,43 @@ var i=0;
 </nav>
 
 <div id="totale">   
-<h1>Benvenuto sul sito ufficiale di RedHouse!</h1>
-<p>cosa facciamo?</p>
+<h1 id="titolo">Benvenuto sul sito ufficiale di RedHouse!</h1>
+
+
+
+
+<div class="row">
+  
+  <div class="main">
+    <h2>Cosa facciamo?</h2>
+    <div class="fakeimg" style="height:200px;">Image</div>
+    <p>Some text..</p>
+    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+    <br>
+    <h2>TITLE HEADING</h2>
+    <h5>Title description, Sep 2, 2017</h5>
+    <div class="fakeimg" style="height:200px;">Image</div>
+    <p>Some text..</p>
+    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+  </div>
+    <div class="side">
+    <h2>About Me</h2>
+    <h5>Photo of me:</h5>
+    <div class="fakeimg" style="height:200px;">Image</div>
+    <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+    <h3>More Text</h3>
+    <p>Lorem ipsum dolor sit ame.</p>
+    <div class="fakeimg" style="height:60px;">Image</div><br>
+    <div class="fakeimg" style="height:60px;">Image</div><br>
+    <div class="fakeimg" style="height:60px;">Image</div>
+  </div>
 </div>
 
+<!-- Footer -->
+<div class="footer">
+  <h2>Per qualsiasi tipo di problema contattare: redhouseverified@gmail.com</h2>
+</div>
+</div>
 
 
 
