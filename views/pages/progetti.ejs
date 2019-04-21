@@ -87,7 +87,7 @@ color:white;
 
  #li1:hover{
   background-color: #111;
-   
+  margin-top:10px;
 }
    
 
@@ -257,6 +257,11 @@ var i=0;
   document.getElementById("li2").classList.toggle("change");
 }
     
+var HOST = location.origin.replace(/^http/, 'ws')
+      var ws = new WebSocket(HOST);
+      var el = document.getElementById('server-time');
+      ws.onmessage = function (event) {
+        el.innerHTML = 'Server time: ' + event.data;
     </script></head>
 
 
