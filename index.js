@@ -15,27 +15,3 @@ express()
   .listen(PORT, () => console.log(`è qui: ${ PORT }`))
 
 
-var mysql = require('mysql');
-var app = express();
-
-var con = mysql.createConnection({   
-  host: "localhost",
-  user: "myusername",
-  password: "mypassword"   
-});
-
-con.connect(function(err) {
-  if (!!err){
-  console.log("ERROR");
-}else{
-    console.log("Connected!");
- }
-        
-        
-        
-        
-    });
-            
-            }
-});
-app.listen(5000);
