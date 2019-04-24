@@ -231,7 +231,7 @@ var i=0;
 	
 	 if(i==0){
       document.getElementById('side-menu').style.width = '40vw';
-      document.getElementById("totale").style.marginRight = '40vw';
+    
       if ($(window).width() > 568) {
         document.getElementById("li2").style.marginRight = '35vw';
       }
@@ -241,14 +241,14 @@ var i=0;
 	else if(i==1){
 	document.getElementById('side-menu').style.width = "0px";
     document.getElementById("li2").style.marginRight = "2vw";  
-    document.getElementById("totale").style.marginRight = '0vw';    
+     
 	  i=0;
     }
 	}
   function chiudi(){
      document.getElementById('side-menu').style.width = '0';
     document.getElementById("li2").style.marginRight = "2vw";  
-    document.getElementById("totale").style.marginRight = '0vw';    
+      
 	  i=0; 
       document.getElementById("li2").classList.toggle("change",false);    
   }
