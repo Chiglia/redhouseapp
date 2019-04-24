@@ -256,8 +256,15 @@ var i=0;
 	function cambia() {
   document.getElementById("li2").classList.toggle("change");
 }
-    
-    </script></head>
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      socket.on('time', function(timeString) {
+         document.getElementById('server-time').innerHTML = 'Server time: ' + timeString;
+      });
+         </script>
+    </head>
 
 
 <body onscroll="chiudi()">
@@ -324,6 +331,7 @@ var i=0;
 <!-- Footer -->
 <div class="footer">
   <h2>Per qualsiasi tipo di problema contattare: redhouseverified@gmail.com</h2>
+    <p id='server-time'></p>
 </div>
 </div>
 
