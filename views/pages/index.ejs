@@ -248,12 +248,17 @@ margin-bottom:0;
 }
         }
 
-@media only screen and (max-width: 700px) {
-  body{   
+@media screen and (max-width: 100px) {
+  .row{   
     flex-direction: column;
   }
     .side{
         border-left:0px;
+    }
+    .main {
+        width:100%;
+        
+        
     }
 }
     * {
@@ -323,7 +328,7 @@ var i=0;
     });
   });
       socket.on('time', function(timeString) {
-         document.getElementById('server-time').innerHTML = 'Server time: ' + timeString;
+         document.getElementById('server-time').innerHTML =timeString;
       });
          
 </script>
