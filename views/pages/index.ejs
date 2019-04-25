@@ -45,6 +45,11 @@
   border-radius:5px;
   
 }
+        h1{
+            margin:0;
+            
+            
+        }
 
         html{
             margin:0;
@@ -68,7 +73,7 @@ color:white;
         display:block;
         padding-bottom:4px;
     }
-    ul {
+   #nav {
   list-style-type: none;
   margin: 0;
  padding:0px;
@@ -175,16 +180,10 @@ color:white;
      }
 
 
-
-
-/* Column container */
 .row {  
   display: flex;
   flex-wrap: wrap;
 }
-
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
 .side {
   flex: 30%;
   background-color: #f1f1f1;
@@ -192,33 +191,59 @@ color:white;
     float:right;
 }
 
-/* Main column */
 .main {
   flex: 70%;
  
   padding: 20px;
 }
 
-/* Fake image, just for this example */
 .fakeimg {
   background-color: #aaa;
   width: 100%;
   padding: 20px;
 }
 
-/* Footer */
 .footer {
 margin-bottom:0;
   text-align: center;
   background-color: #333;
      bottom:0;
     padding:10px;
-    display:block;
     
 }
+        #arduino{
+            display:inline;
+            width:15vw;
+            margin:20px;
+            margin-right:50px;
+  
+            transition: transform .2s;
+    
+         
+        }
+        #raspberry{
+             width:15vw;
+             display:inline;
+            margin:20px;
+            transition: transform .2s;
+            
+        }
+        #arduino:hover{
+           transform: scale(1.2); 
+       }
+        #raspberry:hover{
+           transform: scale(1.2); 
+       }
+        #mars{
+       width: 100%;
+  max-width: 500px;;
+  height: auto;
+            object-fit:cover;
+}
+        }
 
-@media screen and (max-width: 700px) {
-  .row, .navbar {   
+@media only screen and (max-width: 700px) {
+  .row {   
     flex-direction: column;
   }
 }
@@ -233,6 +258,11 @@ margin-bottom:0;
             
             
         }
+        form { background: #000; padding: 3px; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0;bottom:0; }
+      #messages li { padding: 5px 10px; }
 </style><script>
 var i=0;
     var x=$('side-menu').width();
@@ -267,19 +297,34 @@ var i=0;
 }
     </script>
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-      var socket = io();
+    
+    
+   <script>
+   var socket = io();
+       $(function () {
+    $('form').submit(function(e){
+      e.preventDefault(); // prevents page reloading
+      socket.emit('chat message', $('#m').val());
+      $('#m').val('');
+      return false;
+    });
+    socket.on('chat message', function(msg){
+      $('#messages').append($('<li>').text(msg));
+    });
+  });
       socket.on('time', function(timeString) {
          document.getElementById('server-time').innerHTML = 'Server time: ' + timeString;
       });
-         </script>
+         
+</script>
+    
     </head>
 
 
 <body onscroll="chiudi()">
      
 <nav>
-    <ul>
+    <ul id="nav">
         <li id="li1"> <a href="/" id="a1"> Home</a></li>
    
       <center>
@@ -313,16 +358,24 @@ var i=0;
 <div class="row">
   
   <div class="main">
-    <h2>Cosa facciamo?</h2>
-    <div class="fakeimg" style="height:200px;">Image</div>
-    <p>Some text..</p>
-    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-    <br>
+   
+    <h2>Qual è il nostro obbiettivo?</h2>
+      
+   <img id="mars" src=mars.jpg>
+    <p>Marte</p>
+      <p>In questi anni si parla molto di marte,<strong> ma come sapravvivrebbero gli astronauti senza sostanze nutritive?</strong>noi stiamo ideando una serra adalta tecnologia ,<strong>totalmente automatizzata</strong>che sarebbe in grado di coltivare le piante in modo autonomo.</p>
+       <h2>Che strumenti utilizziamo?</h2>
+   <center><img id="arduino" src=arduino.png>
+      <img id="raspberry" src=raspberrypi.png></center> 
+    <p>Arduino e RaspberryPi</p>
+    <p>Non essendo la NASA e non avendo gli stessi fondi stiamo progettando la serra con costi irrilevanti ma comunque perfettamente funzionale al terreno marziano.</p>
     <h2>TITLE HEADING</h2>
     <h5>Title description, Sep 2, 2017</h5>
-    <div class="fakeimg" style="height:200px;">Image</div>
+      
+   <img id="mars" src=mars.jpg>
     <p>Some text..</p>
     <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+      <br>
   </div>
     <div class="side">
     <h2>About Me</h2>
@@ -338,13 +391,13 @@ var i=0;
 </div>
 
 <!-- Footer -->
+
+</div>
 <div class="footer">
   <h2>Per qualsiasi tipo di problema contattare: redhouseverified@gmail.com</h2>
     <p id='server-time'></p>
 </div>
-</div>
 
-
-
+  
 
 </body></html>
