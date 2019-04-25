@@ -34,6 +34,7 @@ background-color:#75a3a3;
 margin:0;
 color:white;
 font-family: 'Overlock', cursive;
+    letter-spacing: 1px
 }
         
 .button {
@@ -190,7 +191,7 @@ font-family: 'Overlock', cursive;
 }
 .side {
   flex: 30%;
-  background-color: #f1f1f1;
+border-left:2px solid #111;
   padding: 20px;
     float:right;
 }
@@ -247,15 +248,19 @@ margin-bottom:0;
         }
 
 @media only screen and (max-width: 700px) {
-  .row {   
+  body{   
     flex-direction: column;
   }
+    .side{
+        border-left:0px;
+    }
 }
     * {
   box-sizing: border-box;
 }
     #titolo{
         padding-left:20px;
+        padding-top:10px;
       }
         p{
             margin:0;
