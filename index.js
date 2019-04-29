@@ -26,4 +26,4 @@ io.on('connection', function(socket){
   });
 });
 
-setInterval(() => io.emit('time', new Date().getHours()+2 + ":" + new Date().getMinutes() + ":" + new Date().getSeconds()), 1000);
+setInterval(() => io.emit('time', new Date().getHours()+2 + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + " GTM+0200 (UTC)"), 1000);
