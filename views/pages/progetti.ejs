@@ -1,10 +1,10 @@
 <!doctype html>
 <html><head>
   <title>Home page</title>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
 <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
@@ -21,23 +21,7 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
-<link href="https://fonts.googleapis.com/css?family=Overlock:400i" rel="stylesheet">
     <style>
-        html{
-            margin:0;
-            
-            
-            
-        }
-body{
-background-color:#75a3a3;
-margin:0;
-color:white;
-font-family: 'Overlock', cursive;
-    letter-spacing: 1px;
-    outline:none;
-}
-        
 .button {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -61,14 +45,19 @@ font-family: 'Overlock', cursive;
   border-radius:5px;
   
 }
-        h1{
-            margin:0;
-            
-            
-        }
 
-        
 
+body{
+background-color:#75a3a3;
+margin:0;
+color:white;
+}
+
+
+
+    
+   
+   
    .logo{
         
          
@@ -79,7 +68,7 @@ font-family: 'Overlock', cursive;
         display:block;
         padding-bottom:4px;
     }
-   #nav {
+    ul {
   list-style-type: none;
   margin: 0;
  padding:0px;
@@ -186,98 +175,56 @@ font-family: 'Overlock', cursive;
      }
 
 
+
+
+/* Column container */
 .row {  
   display: flex;
   flex-wrap: wrap;
 }
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
 .side {
   flex: 30%;
-border-left:2px solid #111;
+  background-color: #f1f1f1;
   padding: 20px;
     float:right;
 }
 
+/* Main column */
 .main {
   flex: 70%;
  
   padding: 20px;
 }
 
+/* Fake image, just for this example */
 .fakeimg {
   background-color: #aaa;
   width: 100%;
   padding: 20px;
 }
 
+/* Footer */
 .footer {
-margin-bottom:0;
+  padding: 20px;
   text-align: center;
-  background-color: #333;
+  background: #ddd;
      bottom:0;
-    padding:10px;
-    
 }
-        #arduino{
-            display:inline;
-            width:15vw;
-            margin:20px;
-            margin-right:50px;
-  
-            transition: transform .2s;
-    
-         
-        }
-        #raspberry{
-             width:15vw;
-             display:inline;
-            margin:20px;
-            transition: transform .2s;
-            
-        }
-        #arduino:hover{
-           transform: scale(1.2); 
-       }
-        #raspberry:hover{
-           transform: scale(1.2); 
-       }
-        #mars{
-       width: 100%;
-  max-width: 500px;;
-  height: auto;
-            object-fit:cover;
-}
-        }
 
-@media screen and (max-width: 100px) {
-  .row{   
+@media screen and (max-width: 700px) {
+  .row, .navbar {   
     flex-direction: column;
   }
-    .side{
-        border-left:0px;
-    }
-    .main {
-        width:100%;
-        
-        
-    }
 }
     * {
   box-sizing: border-box;
 }
     #titolo{
         padding-left:20px;
-        padding-top:10px;
       }
-        p{
-            margin:0;
-            
-            
-        }
-        form { background: #000; padding: 3px; width: 100%; }
-      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-      #messages { list-style-type: none; margin: 0; padding: 0;bottom:0; }
-      #messages li { padding: 5px 10px; }
 </style><script>
 var i=0;
     var x=$('side-menu').width();
@@ -295,14 +242,14 @@ var i=0;
 	else if(i==1){
 	document.getElementById('side-menu').style.width = "0px";
     document.getElementById("li2").style.marginRight = "2vw";  
-     
+ 
 	  i=0;
     }
 	}
   function chiudi(){
      document.getElementById('side-menu').style.width = '0';
     document.getElementById("li2").style.marginRight = "2vw";  
-      
+    
 	  i=0; 
       document.getElementById("li2").classList.toggle("change",false);    
   }
@@ -310,36 +257,14 @@ var i=0;
 	function cambia() {
   document.getElementById("li2").classList.toggle("change");
 }
-    </script>
-    <script src="/socket.io/socket.io.js"></script>
     
-    
-   <script>
-   var socket = io();
-       $(function () {
-    $('form').submit(function(e){
-      e.preventDefault(); // prevents page reloading
-      socket.emit('chat message', $('#m').val());
-      $('#m').val('');
-      return false;
-    });
-    socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').text(msg));
-    });
-  });
-      socket.on('time', function(timeString) {
-         document.getElementById('server-time').innerHTML =timeString;
-      });
-         
-</script>
-    
-    </head>
+    </script></head>
 
 
 <body onscroll="chiudi()">
      
 <nav>
-    <ul id="nav">
+    <ul>
         <li id="li1"> <a href="/" id="a1"> Home</a></li>
    
       <center>
@@ -365,7 +290,7 @@ var i=0;
 </nav>
 
 <div id="totale" onclick="chiudi()">   
-<h1 id="titolo">Benvenuto sul sito ufficiale di RedHouse!</h1>
+<h1 id="titolo">Su cosa stiamo lavorando?</h1>
 
 
 
@@ -373,24 +298,16 @@ var i=0;
 <div class="row">
   
   <div class="main">
-   
-    <h2>Qual è il nostro obiettivo?</h2>
-      
-   <img id="mars" src=mars.jpg>
-    <p>Marte</p>
-      <p>In questi anni si parla molto di marte,<strong> ma come sapravvivrebbero gli astronauti senza sostanze nutritive?</strong>noi stiamo ideando una serra adalta tecnologia ,<strong>totalmente automatizzata</strong>che sarebbe in grado di coltivare le piante in modo autonomo.</p>
-       <h2>Che strumenti utilizziamo?</h2>
-   <center><img id="arduino" src=arduino.png>
-      <img id="raspberry" src=raspberrypi.png></center> 
-    <p>Arduino e RaspberryPi</p>
-    <p>Non essendo la NASA e non avendo gli stessi fondi stiamo progettando la serra con costi irrilevanti ma comunque perfettamente funzionale al terreno marziano.</p>
-    <h2>TITLE HEADING</h2>
-    <h5>Title description, Sep 2, 2017</h5>
-      
-   <img id="mars" src=mars.jpg>
+    <h2>Cosa stiamo sviluppando?</h2>
+    <div class="fakeimg" style="height:200px;">Image</div>
     <p>Some text..</p>
     <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <br>
+    <br>
+    <h2>TITLE HEADING</h2>
+    <h5>Title description, Sep 2, 2017</h5>
+    <div class="fakeimg" style="height:200px;">Image</div>
+    <p>Some text..</p>
+    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
   </div>
     <div class="side">
     <h2>About Me</h2>
@@ -405,12 +322,13 @@ var i=0;
   </div>
 </div>
 
-</div>
+<!-- Footer -->
 <div class="footer">
   <h2>Per qualsiasi tipo di problema contattare: redhouseverified@gmail.com</h2>
-    <p id='server-time'></p>
+</div>
 </div>
 
-  
+
+
 
 </body></html>
