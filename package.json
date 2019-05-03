@@ -15,12 +15,12 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "mysql": "^2.17.1",
+    "socket.io": "^2.2.0",
     "utf-8-validate": "^5.0.2",
     "ws": "^6.2.1"
   },
   "devDependencies": {
     "request": "^2.81.0",
-    "socket.io": "^2.2.0",
     "tape": "^4.7.0"
   },
   "repository": {
