@@ -25,8 +25,4 @@ io.on('connection', function(socket){
   });
 });
 
-<<<<<<< HEAD
-setInterval(() => io.emit('time', new Date().getHours()+2 + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + " GTM+0200 (UTC)"), 1000);
-=======
-setInterval(() => io.emit('time', new Date().getHours()+2 + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + " GTM+0200 (UTC)"), 1000);
->>>>>>> 3c360aaae62d18a7eee6dab0232ac102c67f42b8
+
