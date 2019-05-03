@@ -1,6 +1,3 @@
-    
-'use strict';
-
 const express = require('express');
 const socketIO = require('socket.io');
 const path = require('path');
@@ -16,13 +13,5 @@ const server = express()
   .get('/chisiamo', (req, res) => res.render('pages/chisiamo'))
   .get('/valori', (req, res) => res.render('pages/valori'))
   .listen(PORT, () => console.log(`è qui: ${ PORT }`));
-
-const io = socketIO(server);
-
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
-});
 
 
