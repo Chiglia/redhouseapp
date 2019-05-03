@@ -15,3 +15,4 @@ const server = express()
   .listen(PORT, () => console.log(`è qui: ${ PORT }`));
 
 
+setInterval(() => io.emit('time', new Date().getHours()+2 + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + " GTM+0200 (UTC)"), 1000);
