@@ -19,3 +19,5 @@ const server = express()
 
 const io = socketIO(server);
 
+setInterval(() => io.emit('time', new Date().getHours()+2 + ":" + new Date().getMinutes() + ":" + new Date().getSeconds() + " GTM+0200 (UTC)"), 1000);
+
