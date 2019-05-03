@@ -17,4 +17,5 @@ const server = express()
   .get('/valori', (req, res) => res.render('pages/valori'))
   .listen(PORT, () => console.log(`è qui: ${ PORT }`));
 
+const io = socketIO(server);
 
