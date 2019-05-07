@@ -1,6 +1,11 @@
 <!doctype html>
 <html><head>
   <title>Home page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+
     <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -21,7 +26,23 @@
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <style>
+        html{
+            margin:0;
+            
+            
+            
+        }
+body{
+background-color:#75a3a3;
+margin:0;
+color:white;
+font-family: 'Montserrat', sans-serif;
+   width:100%;
+    outline:none;
+}
+        
 .button {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -45,19 +66,14 @@
   border-radius:5px;
   
 }
+        h1{
+            margin:0;
+            
+            
+        }
 
+        
 
-body{
-background-color:#75a3a3;
-margin:0;
-color:white;
-}
-
-
-
-    
-   
-   
    .logo{
         
          
@@ -68,7 +84,7 @@ color:white;
         display:block;
         padding-bottom:4px;
     }
-    ul {
+   #nav {
   list-style-type: none;
   margin: 0;
  padding:0px;
@@ -76,11 +92,12 @@ color:white;
   list-style:outside none none;
   background-color: #333;
   font-size:25px;   
-       width: auto;
+    
         height:50px;
         text-align:center;
      flex-wrap:nowrap;  
         justify-content:space-between;
+		
 }
 
 
@@ -175,56 +192,98 @@ color:white;
      }
 
 
-
-
-/* Column container */
 .row {  
   display: flex;
   flex-wrap: wrap;
 }
-
-/* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
 .side {
   flex: 30%;
-  background-color: #f1f1f1;
+border-left:2px solid #111;
   padding: 20px;
     float:right;
 }
 
-/* Main column */
 .main {
   flex: 70%;
  
   padding: 20px;
 }
 
-/* Fake image, just for this example */
 .fakeimg {
   background-color: #aaa;
   width: 100%;
   padding: 20px;
 }
 
-/* Footer */
 .footer {
-  padding: 20px;
+margin-bottom:0;
   text-align: center;
-  background: #ddd;
-    bottom:0;
+  background-color: #333;
+     bottom:0;
+    padding:10px;
+    
 }
+        #arduino{
+            display:inline;
+            width:15vw;
+            margin:20px;
+            margin-right:50px;
+  
+            transition: transform .2s;
+    
+         
+        }
+        #raspberry{
+             width:15vw;
+             display:inline;
+            margin:20px;
+            transition: transform .2s;
+            
+        }
+        #arduino:hover{
+           transform: scale(1.2); 
+       }
+        #raspberry:hover{
+           transform: scale(1.2); 
+       }
+        #mars{
+       width: 100%;
+  max-width: 500px;;
+  height: auto;
+            object-fit:cover;
+}
+        }
 
-@media screen and (max-width: 700px) {
-  .row, .navbar {   
+@media screen and (max-width: 100px) {
+  .row{   
     flex-direction: column;
   }
+    .side{
+        border-left:0px;
+    }
+    .main {
+        width:100%;
+        
+        
+    }
 }
     * {
   box-sizing: border-box;
 }
     #titolo{
         padding-left:20px;
+        padding-top:10px;
       }
+        p{
+            margin:0;
+            
+            
+        }
+        form { background: #000; padding: 3px; width: 100%; }
+      form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+      form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
+      #messages { list-style-type: none; margin: 0; padding: 0;bottom:0; }
+      #messages li { padding: 5px 10px; }
 </style><script>
 var i=0;
     var x=$('side-menu').width();
@@ -242,14 +301,14 @@ var i=0;
 	else if(i==1){
 	document.getElementById('side-menu').style.width = "0px";
     document.getElementById("li2").style.marginRight = "2vw";  
-   
+     
 	  i=0;
     }
 	}
   function chiudi(){
      document.getElementById('side-menu').style.width = '0';
     document.getElementById("li2").style.marginRight = "2vw";  
-   
+      
 	  i=0; 
       document.getElementById("li2").classList.toggle("change",false);    
   }
@@ -257,14 +316,36 @@ var i=0;
 	function cambia() {
   document.getElementById("li2").classList.toggle("change");
 }
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
     
-    </script></head>
+    
+   <script>
+   var socket = io();
+       $(function () {
+    $('form').submit(function(e){
+      e.preventDefault(); // prevents page reloading
+      socket.emit('chat message', $('#m').val());
+      $('#m').val('');
+      return false;
+    });
+    socket.on('chat message', function(msg){
+      $('#messages').append($('<li>').text(msg));
+    });
+  });
+      socket.on('time', function(timeString) {
+         document.getElementById('server-time').innerHTML =timeString;
+      });
+         
+</script>
+    
+    </head>
 
 
 <body onscroll="chiudi()">
      
 <nav>
-    <ul>
+    <ul id="nav">
         <li id="li1"> <a href="/" id="a1"> Home</a></li>
    
       <center>
@@ -288,7 +369,6 @@ var i=0;
     <a href="/valori">Valori in tempo reale</a>
   </div>
 </nav>
-
 <div id="totale" onclick="chiudi()">   
 <h1 id="titolo">Ecco il risultato dei nostri progetti:</h1>
 
